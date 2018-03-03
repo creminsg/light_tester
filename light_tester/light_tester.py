@@ -29,6 +29,17 @@ class LightTester:
                 for line in f.readline(): 
                         instructions.append(line)
                 return N, instructions
-        return 
-
-
+        return
+	
+    def apply(instructions):
+        validCommandCount = 0
+        for line in instructions:
+            cmd = 'Nothing'
+            commandPattern = re.compile(".*turn on|turn off|switch")
+            if commandPattern.search(line) == None:
+                pass
+            
+            else:
+                cmd = commandPattern.search(line).group(0)
+                validCommandCount += 1
+        return validCommandCount

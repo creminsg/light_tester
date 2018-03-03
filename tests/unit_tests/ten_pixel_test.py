@@ -7,11 +7,17 @@ from click.testing import CliRunner
 
 
 
-def testParseFile():
+def testParseOnlineFile():
 	file = "http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3.txt"
 	N, instructions = light_tester.LightTester.parseFile(file)
 	assert N is not None
 	assert instructions is not None	
+
+def testParseLocalFile():
+        file = "./data/input_assign3.txt"
+        N, instructions = light_tester.LightTester.parseFile(file)
+        assert N is not None
+        assert instructions is not None
 
 #def test_length_parse():
 #    data = "10\nturn on 8,-40 through the pixels 9,11"

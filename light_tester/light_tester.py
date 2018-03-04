@@ -2,14 +2,15 @@
   
 """Main module."""
 
+import sys
+import click
 import urllib.request
 import re
 
-
-def parseFile(A):
+def parseFile(input):
     instructions = []
-    if A.startswith('http'):
-        response = urllib.request.urlopen(A)
+    if input.startswith('http'):
+        response = urllib.request.urlopen(input)
         data = response.read().decode('utf-8')
         z = re.split('\n', data)
         for i in z:
@@ -20,8 +21,8 @@ def parseFile(A):
         count = apply(instructions, lights, N)
         return count
         
-    elif A.startswith('10'):
-        z = re.split('\n', A)
+    elif input.startswith('10'):
+        z = re.split('\n', input)
         for i in z:
             instructions.append(i)
         N = int(instructions.pop(0))
@@ -32,13 +33,15 @@ def parseFile(A):
     
     else:
         # read from disk
-        N, instructions = None, []
-        with open(A,'r') as f:
+        with open(input,'r') as f:
             N = int(f.readline())
-            for line in f.readline(): 
+            for line in f.readlines(): 
                 instructions.append(line)
-        # main code goes here
-        return N, instructions
+        lights = [[False]*N for i in range(N)]
+        # trying to initiliase object so that the self.count works
+        count = apply(instructions, lights, N)
+        return count
+
     return
 
 def apply(instructions, lights, N):

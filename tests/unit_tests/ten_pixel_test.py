@@ -26,5 +26,5 @@ def testIgnoreInvalidCommands():
         assert validCommandCount != totalCommandCount
 
 def testGridBoundary():
-	result = light_tester.LightTester.parseFile("10\nturn on -10,8 through 3,11")
+	result = light_tester.parseFile("10\nturn on -10,8 through 3,11")
 	assert result == 8	

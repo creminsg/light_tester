@@ -3,16 +3,18 @@
 """Console script for light_tester."""
 import sys
 import click
-
+import light_tester
+click.disable_unicode_literals_warning = True
 
 @click.command()
-def main(args=None):
-    """Console script for light_tester."""
-    click.echo("Replace this message by putting your code into "
-               "light_tester.cli.main")
-    click.echo("See click documentation at http://click.pocoo.org/")
+@click.option("--input", default=None, help="input URI (file or URL)")
+
+def main(input=None):
+    print("input", input)
+    result = light_tester.parseFile(input)
+    print("There are ", result, "lights on")
     return 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())  # pragma: no cover
+    sys.exit(main())

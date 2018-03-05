@@ -27,21 +27,17 @@ def parseFile(input):
             instructions.append(i)
         N = int(instructions.pop(0))
         lights = [[False]*N for i in range(N)]
-        # trying to initiliase object so that the self.count works
         count = apply(instructions, lights, N)
         return count
     
     else:
-        # read from disk
         with open(input,'r') as f:
             N = int(f.readline())
             for line in f.readlines(): 
                 instructions.append(line)
         lights = [[False]*N for i in range(N)]
-        # trying to initiliase object so that the self.count works
         count = apply(instructions, lights, N)
         return count
-
     return
 
 def apply(instructions, lights, N):

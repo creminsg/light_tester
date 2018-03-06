@@ -35,7 +35,7 @@ setup(
     description="Assignment 3 COMP30670",
     entry_points={
         'console_scripts': [
-            'light_tester=light_tester.cli:main',
+            'solve_led=light_tester.cli:main',
         ],
     },
     install_requires=requirements,

@@ -3,7 +3,7 @@
 """Console script for light_tester."""
 import sys
 import click
-import light_tester
+import light_tester.ledSolve
 click.disable_unicode_literals_warning = True
 
 @click.command()
@@ -11,7 +11,8 @@ click.disable_unicode_literals_warning = True
 
 def main(input=None):
     print("input", input)
-    result = light_tester.parseFile(input)
+    input = sys.argv[2]
+    result = ledSolve.parseFile(input)
     print("There are ", result, "lights on")
     return 0
 

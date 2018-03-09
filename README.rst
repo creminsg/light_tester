@@ -1,10 +1,14 @@
 ===========
 light_tester
 ============
-------------------------------------------------
-Once the package is installed, pasting the following into the command line should display to you the error I am getting: solve_led --input "data/input_assign4.txt". The error I am getting is: NameError: name 'ledSolve' is not defined. ledSolve is a module in the same directory as the cli.py file which is attempting to access it. It seems that the problem is that the cli.py file is failing to import ledSolve. To uninstall the package use "pip uninstall light-tester". Thank you for taking the time to look at my project.
-------------------------------------------------
+------------------------------------------------------
+This program is intended to test the proper functioning of LED display boards. You can feed it instructions as to which lights of the display board to turn on or off and it will give an output of the number of lights that are on at the end of these instructions. 
 
+To input an instruction file use solve_led --input <"local file or web address">. For example: solve_ed --input "http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3.txt".
+
+
+
+------------------------------------------------------
 
 
 .. image:: https://img.shields.io/pypi/v/light_tester.svg
@@ -25,12 +29,6 @@ Assignment 3 COMP30670
 
 * Free software: MIT license
 * Documentation: https://light-tester.readthedocs.io.
-
-
-Features
---------
-
-* TODO
 
 Credits
 -------

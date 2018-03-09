@@ -41,12 +41,12 @@ def parseFile(input):
     return
 
 def apply(instructions, lights, N):
-    
     for line in instructions:
         cmd = 'Nothing'
-        commandPattern = re.compile(".*turn on|turn off|switch")
-        if commandPattern.search(line) == None:
+        commandPattern = re.compile(".*turn on|.*turn off|.*switch")
+        if commandPattern.search(line) is None: 
             pass
+            
         
         else:
             cmd = commandPattern.search(line).group(0)
@@ -59,24 +59,25 @@ def apply(instructions, lights, N):
             
             x1, y1, x2, y2 = coordinates[0], coordinates[1], coordinates[2], coordinates[3]
 
-        if cmd == 'turn on':
-            for i in range (y1,y2+1):
-                for j in range(x1,x2+1):
-                    lights[i][j]=True
+            if cmd == 'turn on':
+                for i in range (min(y1,y2), max(y1,y2)+1):
+                    for j in range(min(x1,x2), max(x1,x2)+1):
+                        lights[i][j]=True
 
-        elif cmd == 'turn off':
-            for i in range (y1,y2+1):
-                for j in range(x1,x2+1):
-                    lights[i][j]=False
-
-        elif cmd == 'switch':
-            for i in range (y1,y2+1):
-                for j in range(x1,x2+1):
-                    if lights[i][j]==True:
+            elif cmd == 'turn off':
+                for i in range (min(y1,y2), max(y1,y2)+1):
+                    for j in range(min(x1,x2), max(x1,x2)+1):
                         lights[i][j]=False
-                    else:
-                        if lights[i][j]==False:
-                            lights[i][j]=True
+
+            elif cmd == 'switch':
+                for i in range (min(y1,y2), max(y1,y2)+1):
+                    for j in range(min(x1,x2), max(x1,x2)+1):
+                        if lights[i][j]==True:
+                            lights[i][j]=False
+                        else:
+                            if lights[i][j]==False:
+                                lights[i][j]=True
+
     count = 0
     for i in lights:
         for j in i:

@@ -2,11 +2,9 @@
 light_tester
 ============
 ------------------------------------------------------
-This program is intended to test the proper functioning of LED display boards. You can feed it instructions as to which lights of the display board to turn on or off and it will give an output of the number of lights that are on at the end of these instructions. 
+This program is intended to test the proper functioning of LED display boards. You can feed it instructions telling it which lights of a display board to turn on or off and it will output the number of lights that should be turned on at the end of the instructions. 
 
-To input an instruction file use solve_led --input <"local file or web address">. For example: solve_ed --input "http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3.txt".
-
-
+To input an instruction file use solve_led --input <"local file or web address">. For example: solve_led --input "http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3.txt".
 
 ------------------------------------------------------
 

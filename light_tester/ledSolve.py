@@ -45,9 +45,8 @@ def apply(instructions, lights, N):
         cmd = 'Nothing'
         commandPattern = re.compile(".*turn on|.*turn off|.*switch")
         if commandPattern.search(line) is None: 
-            pass
-            
-        
+            pass    
+       
         else:
             cmd = commandPattern.search(line).group(0)
             coordinates = [int(s) for s in re.findall(r'([+-]?\d+)',line)] 

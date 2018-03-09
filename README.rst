@@ -6,6 +6,7 @@ This program is intended to test the proper functioning of LED display boards. Y
 
 To input an instruction file use solve_led --input <"local file or web address">. For example: solve_led --input "http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3.txt".
 
+Note: The test modules were used to test the functionality of parts of the code. When all of these parts are put together to make the working program, the tests fail. 
 ------------------------------------------------------
 
 
